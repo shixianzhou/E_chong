@@ -1,60 +1,82 @@
 <template>
   <div class="leftcontent">
-    <div class="left">
-      <ul>
-        <li v-for="item in 13">为您推荐</li>
+    <div class="container">
+      <div class="left" ref="left">
+      <ul >
+        <li v-for="item in 16">为您推荐</li>
       </ul>
     </div>
-    <div class="right">
-      <div class="sort-recom" >
-        <div class="sort-recom_top">
-          <p>狗狗主粮</p>
-          <img src="./images/cate_right_img.png" alt="">
-        </div>
-        <div class="sort-recom_bottom">
-          <ul>
-            <li v-for="item in 4">
-              <img src="./images/1.jpg" alt="">
-              <p>进口狗粮</p>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="sort-recom" >
-        <div class="sort-recom_top">
-          <p>热门品牌</p>
-        </div>
-        <div class="sort-recom_bottom2">
-          <ul>
-            <li v-for="item in 10">
-              <div>
-                <img src="./images/品牌.jpg" alt="">
-                <p>进口狗粮</p>
+      <div class="right">
+        <div class="right-container" ref="right">
+          <div>
+            <div class="sort-recom" >
+              <div class="sort-recom_top">
+                <p>狗狗主粮</p>
+                <img src="./images/cate_right_img.png" alt="">
               </div>
-            </li>
-          </ul>
+              <div class="sort-recom_bottom">
+                <ul>
+                  <li v-for="item in 4">
+                    <img src="./images/1.jpg" alt="">
+                    <p>进口狗粮</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="sort-recom" >
+              <div class="sort-recom_top">
+                <p>热门品牌</p>
+              </div>
+              <div class="sort-recom_bottom2">
+                <ul>
+                  <li v-for="item in 15">
+                    <div>
+                      <img src="./images/品牌.jpg" alt="">
+                      <p>进口狗粮</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+    </div>
     </div>
   </div>
 </template>
 
 <script>
-
+import BScroll from 'better-scroll'
   export default {
-
+    mounted(){
+      new BScroll(this.$refs.left, {
+        click:true
+      })
+      new BScroll(this.$refs.right, {
+        click:true
+      })
+    }
   }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
   img
     display block
+  .container
+    width 100%
+    height 100%
+    display flex
+  .right-container
+    height 100%
+    div
+      background-color: #fff;
   .leftcontent
     width 100%
     height 100%
-    overflow hidden
     display flex
-    margin-top 40px
+    padding-top 40px
+    padding-bottom 55px
+    box-sizing border-box
     .left
       background-color: #fff;
       width 20%
@@ -69,6 +91,7 @@
           box-sizing border-box
     .right
       width 80%
+      height 100%
       margin-top 5px
       margin-left 5px
       background-color #fff
@@ -118,11 +141,8 @@
                 img
                   width 80%
                   margin 5px auto
-                  border 1px solid crimson
+                  border 1px solid #e2e2e2
                 p
                   text-align center
                   font-size 12px
-
-
-
 </style>

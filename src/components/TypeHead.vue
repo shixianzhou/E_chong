@@ -30,6 +30,7 @@
     bottom-border-1px(#e5e5e5)
     background-color  #fff
     border-bottom 1px solid #e5e5e5
+    z-index 100
     .head
       width 50%
       height 40px

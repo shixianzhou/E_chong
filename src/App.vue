@@ -8,14 +8,14 @@
 <script>
 
 import Footer from './components/Footer.vue'
-
 export default {
 components:{
   Footer
-}
+},
 }
 </script>
 
-<style>
-
+<style lang="stylus" rel="stylesheet/stylus" scoped>
+  #app
+    height 100%
 </style>

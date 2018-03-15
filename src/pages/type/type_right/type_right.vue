@@ -1,6 +1,6 @@
 <template>
   <div class="rightcontent">
-    <div>
+    <div class="rightcontent_wrap" ref="pinpai">
       <ul>
         <li class="brand-list" v-for="item in 5">
             <div class="wrap">
@@ -21,18 +21,25 @@
   </div>
 </template>
 <script>
-
+  import BScroll from 'better-scroll'
   export default {
-
+    mounted(){
+      new BScroll(this.$refs.pinpai, {
+        click:true
+      })
+    }
   }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
+.rightcontent_wrap
+  height 100%
 .rightcontent
+  height 100%
   margin-top 45px
-  padding-bottom  60px
   div
     ul
+      padding-bottom 60px
       li
         margin-bottom 10px
         background-color: #fff;

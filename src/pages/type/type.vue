@@ -18,4 +18,5 @@ import TypeHead from '../../components/TypeHead.vue'
   @import "../../common/style/mixin.styl"
 .allkind
   width 100%
+  height 100%
 </style>

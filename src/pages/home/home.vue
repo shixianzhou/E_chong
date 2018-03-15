@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
     <div class="E_head">
       <div class="title">
         <div class="address">
@@ -20,7 +20,7 @@
           </a>
         </div>
       </div>
-      <div class="nav">
+      <div class="nav" ref="wrapper1">
         <ul class="nav_content">
           <li class="active">首页</li>
           <li>狗狗主粮</li>
@@ -32,7 +32,8 @@
         </ul>
       </div>
     </div>
-    <div class="container" ref="Wrapper">
+    <div class="Bscroll_test" ref="wrapper2">
+    <div class="container">
       <div class="swiper">
         <div class="swiper-container">
           <div class="swiper-wrapper">
@@ -346,6 +347,7 @@
         </div>
       </div>
     </div>
+    </div>
     <div class="gougou" ref="gou">
     </div>
   </div>
@@ -354,6 +356,7 @@
 <script>
   import MtButton from "../../../node_modules/mint-ui/packages/button/src/button";
   import MtSearch from "../../../node_modules/mint-ui/packages/search/src/search";
+  import BScroll from 'better-scroll'
   import Swiper from 'swiper'
   import 'swiper/dist/css/swiper.min.css'
   export default {
@@ -393,6 +396,13 @@
           el: '.swiper-pagination3'
         }
       })
+      new BScroll(this.$refs.wrapper1, {
+        scrollX:true,
+        click:true
+      })
+      new BScroll(this.$refs.wrapper2, {
+        click:true
+      })
   },
     computed:{
 
@@ -400,10 +410,13 @@
   }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
   img
     display block
-#app
+.Bscroll_test
+  height 100%
+.app
+  height 100%
   background-color: #fff;
   position relative
   .E_head

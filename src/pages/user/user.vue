@@ -12,22 +12,50 @@
       <ul class="login">
         <li>
           <span>普通登陆</span>
-          <i></i>
+          <i v-show="false"></i>
         </li>
         <li>
           <span>手机动态密码登陆</span>
+          <i></i>
         </li>
       </ul>
     </div>
-    <div class="user_content">
+    <div class="user_content" v-show="false">
       <div class="content">
         <div  class="user_login">
-          <i class="iconfont icon-mobilephone"></i>
+          <i class="iconfont icon-account"></i>
           <input type="text" placeholder="手机号/邮箱/用户名">
         </div>
         <div  class="user_pwd">
           <i class="iconfont icon-lock"></i>
           <input type="password" placeholder="输入密码">
+        </div>
+        <p>忘记密码？</p>
+        <button>登陆</button>
+      </div>
+      <div class="space"></div>
+      <p>合作网站登陆</p>
+      <div class="qq">
+        <img src="./images/login_ico2.png" alt="">
+        <img src="./images/login_ico4.png" alt="">
+        <img src="./images/login_ico2.png" alt="">
+      </div>
+    </div>
+    <div class="user_content" v-show="true">
+      <div class="content">
+        <div  class="user_login">
+          <i class="iconfont icon-mobilephone"></i>
+          <input type="text" placeholder="已注册的手机号">
+        </div>
+        <div  class="user_code">
+          <i class="iconfont icon-lock"></i>
+          <input type="password" placeholder="请输入验证码">
+          <div></div>
+        </div>
+        <div  class="user_pwd">
+          <i class="iconfont icon-lock"></i>
+          <input type="password" placeholder="动态密码">
+          <div>获取动态密码</div>
         </div>
         <p>忘记密码？</p>
         <button>登陆</button>
@@ -52,6 +80,8 @@
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   input,button
     outline none
+    &::-webkit-input-placeholder
+      color #e2e2e2
 #user
   width 100%
   .user_head
@@ -106,11 +136,36 @@
         margin-left -20px
         vertical-align middle
       .user_login,.user_pwd
+        position relative
         padding 15px 0 15px 30px
         width 90%
         border-bottom 1px solid #e2e2e2
         font-size 15px
-        color #666
+        color #e2e2e2
+      .user_pwd
+        div
+          position absolute
+          right 0
+          top 10px
+          font-size 12px
+          color: #ff4259;
+          border: 1px solid #eb4c33;
+          padding 10px
+          border-radius 5px
+      .user_code
+        position relative
+        padding 15px 0 15px 30px
+        width 90%
+        border-bottom 1px solid #e2e2e2
+        font-size 15px
+        color #e2e2e2
+        div
+          position absolute
+          right 0
+          top 12px
+          width 85px
+          height 30px
+          background-color: royalblue;
       p
         text-align right
         color #898989
