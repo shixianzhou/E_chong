@@ -68,3 +68,30 @@ iconfont字体图标：
 ## better-scroll滚动插件库 原理
 官方网站：https://ustbhuangyi.github.io/better-scroll/#/
 ![image](https://pic7.zhimg.com/80/v2-71a1e5fbbb39fa4a99f96ecc333a1927_hd.jpg)
+
+## 第三天
+
+1.制作首页动态数据
+
+2.实现首页动态获取
+``` bash
+# 使用
+使用：Mock模拟 json 数据 
+      官网：http://mockjs.com/
+      
+      Vuex 插件库 管理Vue状态
+      官网：https://vuex.vuejs.org/
+问题：
+-常规问题
+
+    动态获取数据对结构产生影响
+    数据返回异步导致页面异常
+
+
+解决办法：
+    -问学委
+    -百度
+    -官网
+待解决
+    首次刷新页面异常
+```

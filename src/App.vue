@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
     <Footer></Footer>
   </div>
 </template>
@@ -12,6 +14,9 @@ export default {
 components:{
   Footer
 },
+  mounted(){
+  this.$store.dispatch('getHomepage')
+}
 }
 </script>
 

@@ -1,11 +1,11 @@
 <template>
   <div class="E_footer">
-    <router-link  to="/home" class="E_footer_tab">
-      <span>
-        <i class="iconfont icon-store"></i>
-      </span>
-      <span>首页</span>
-    </router-link>
+      <router-link  to="/home" class="E_footer_tab">
+        <span>
+          <i class="iconfont icon-store"></i>
+        </span>
+        <span>首页</span>
+      </router-link>
     <router-link  to="/type/left" class="E_footer_tab">
       <span>
         <i class="iconfont icon-viewgallery"></i>

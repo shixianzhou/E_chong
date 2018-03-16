@@ -13,10 +13,6 @@ Vue.use(VueRouter)
 export default new VueRouter({
   routes:[
     {
-      path:'/',
-      redirect:'/home'
-    },
-    {
       path:'/home',
       component: Home
     },
@@ -45,6 +41,10 @@ export default new VueRouter({
     {
       path:'/user',
       component: User
+    },
+    {
+      path:'/',
+      redirect:'/home '
     },
   ]
 })

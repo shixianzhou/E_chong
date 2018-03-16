@@ -2,12 +2,13 @@
   <div>
     <div class="shop_head">
     <div>
-      <i class="iconfont icon-return"></i>
+      <i class="iconfont icon-return" @click="$router.back()"></i>
       <p>购物车</p>
-      <i class="iconfont icon-viewgallery"></i>
+      <i class="iconfont icon-viewgallery" @click="isShop"></i>
     </div>
   </div>
-    <div class="E_footer" v-show="false">
+    <transition name="fade">
+      <div class="E_footer" v-show="isShow">
     <div class="E_footer_tab">
       <span>
         <i class="iconfont icon-shouye"></i>
@@ -33,6 +34,7 @@
       <span>我的E宠</span>
     </div>
   </div>
+    </transition>
     <div class="shop_foot">
       <div class="shop_content">
         <div class="shop_content_icon">
@@ -53,9 +55,17 @@
 </template>
 
 <script>
-
   export default {
-
+    data(){
+      return{
+        isShow:false
+      }
+    },
+    methods:{
+      isShop(){
+        this.isShow = !this.isShow
+      }
+    }
   }
 </script>
 
@@ -64,7 +74,6 @@
   i
     display block
   .E_footer
-    top-border-1px(#e2e2e2)
     bottom-border-1px(#e2e2e2)
     width 100%
     height 55px
@@ -72,9 +81,8 @@
     display flex
     align-items center
     justify-content center
-    position fixed
-    top 50px
     z-index 50
+    overflow hidden
     .E_footer_tab
       display flex
       align-items center
@@ -89,6 +97,12 @@
         .iconfont
           font-size 20px
           color #7e8c8d
+    &.fade-enter-active, &.fade-leave-active {
+      transition: height  1s;
+    }
+    &.fade-enter, &.fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+      height: 0;
+    }
   .shop_head
     background-color: #fff;
     bottom-border-1px(#e2e2e2)

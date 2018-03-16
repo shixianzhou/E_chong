@@ -2,7 +2,7 @@
   <div id="user">
     <div class="user_head">
       <div class="title">
-        <i class="iconfont icon-return"></i>
+        <i class="iconfont icon-return" @click="$router.back()"></i>
         <div>
           <div>注册</div>
         </div>
@@ -10,17 +10,17 @@
       <div class="space">
       </div>
       <ul class="login">
-        <li>
+        <li @click="flag(true)">
           <span>普通登陆</span>
-          <i v-show="false"></i>
+          <i v-if="showLogin"></i>
         </li>
-        <li>
+        <li @click="flag(false)">
           <span>手机动态密码登陆</span>
-          <i></i>
+          <i v-show="!showLogin"></i>
         </li>
       </ul>
     </div>
-    <div class="user_content" v-show="false">
+    <div class="user_content" v-if="showLogin">
       <div class="content">
         <div  class="user_login">
           <i class="iconfont icon-account"></i>
@@ -41,7 +41,7 @@
         <img src="./images/login_ico2.png" alt="">
       </div>
     </div>
-    <div class="user_content" v-show="true">
+    <div class="user_content" v-else>
       <div class="content">
         <div  class="user_login">
           <i class="iconfont icon-mobilephone"></i>
@@ -74,6 +74,16 @@
 <script>
 
   export default {
+    data(){
+      return{
+        showLogin:true
+      }
+    },
+    methods:{
+      flag(isShow){
+        this.showLogin = isShow
+      }
+    }
   }
 </script>
 
