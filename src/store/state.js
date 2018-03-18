@@ -1,5 +1,6 @@
 export default {
   homepage:{},
   left:[],
-  right:[]
+  right:[],
+  brand:[]
 }

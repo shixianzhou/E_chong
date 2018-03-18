@@ -3,39 +3,44 @@
     <div class="container">
       <div class="left" ref="left">
       <ul >
-        <li v-for="item in 16">为您推荐</li>
+        <li v-for="(item,index) in left" :key="index"
+            ref="title"
+            :class="{act:cindex === index}"
+            @click="getShop(index)">{{item.name}}</li>
       </ul>
     </div>
       <div class="right">
         <div class="right-container" ref="right">
           <div>
-            <div class="sort-recom" >
+            <div class="sort-recom" v-for="(item,index) in activity">
+              <div v-if="item.type === 0">
               <div class="sort-recom_top">
-                <p>狗狗主粮</p>
+                <p>{{item.title}}</p>
                 <img src="./images/cate_right_img.png" alt="">
               </div>
               <div class="sort-recom_bottom">
                 <ul>
-                  <li v-for="item in 4">
-                    <img src="./images/1.jpg" alt="">
-                    <p>进口狗粮</p>
+                  <li v-for="item in item.list">
+                    <img :src="item.photo" alt="">
+                    <p>{{item.name}}</p>
                   </li>
                 </ul>
               </div>
-            </div>
-            <div class="sort-recom" >
+              </div>
+              <div v-else>
               <div class="sort-recom_top">
-                <p>热门品牌</p>
+                <p>{{item.title}}</p>
               </div>
               <div class="sort-recom_bottom2">
                 <ul>
-                  <li v-for="item in 15">
+                  <li v-for="item in item.list">
                     <div>
-                      <img src="./images/品牌.jpg" alt="">
-                      <p>进口狗粮</p>
+                    <img :src="item.logo" alt="">
                     </div>
+                    <p>{{item.name}}</p>
                   </li>
                 </ul>
+              </div>
               </div>
             </div>
           </div>
@@ -47,14 +52,39 @@
 
 <script>
 import BScroll from 'better-scroll'
+import {mapState} from 'vuex'
   export default {
+    data(){
+      return{
+        activity:{},
+        cindex:0
+      }
+    },
     mounted(){
+//      this.$store.dispatch('getTypeLeft')
+//      this.$store.dispatch('getTypeRight')
       new BScroll(this.$refs.left, {
         click:true
       })
       new BScroll(this.$refs.right, {
         click:true
       })
+    },
+    computed:{
+      ...mapState(['left'])
+    },
+    methods:{
+      getShop(index){
+        this.activity = this.left[index].cate_list
+        this.cindex = index
+      },
+    },
+    watch:{
+      left(){
+        this.$nextTick(()=>{
+          this.activity = this.left[0].cate_list
+        })
+      }
     }
   }
 </script>
@@ -62,6 +92,9 @@ import BScroll from 'better-scroll'
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   img
     display block
+  .act
+    background-color: #f3f4f5;
+    color red
   .container
     width 100%
     height 100%
@@ -142,7 +175,7 @@ import BScroll from 'better-scroll'
                   width 80%
                   margin 5px auto
                   border 1px solid #e2e2e2
-                p
-                  text-align center
-                  font-size 12px
+              p
+                text-align center
+                font-size 12px
 </style>

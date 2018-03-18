@@ -2,7 +2,7 @@
   <div id="user">
     <div class="user_head">
       <div class="title">
-        <i class="iconfont icon-return" @click="$router.back()"></i>
+        <i class="iconfont icon-return" @click="$router.replace('/home')"></i>
         <div>
           <div>注册</div>
         </div>
@@ -31,7 +31,7 @@
           <input type="password" placeholder="输入密码">
         </div>
         <p>忘记密码？</p>
-        <button>登陆</button>
+        <button >登陆</button>
       </div>
       <div class="space"></div>
       <p>合作网站登陆</p>

@@ -9,25 +9,25 @@
   </div>
     <transition name="fade">
       <div class="E_footer" v-show="isShow">
-    <div class="E_footer_tab">
+    <div class="E_footer_tab" @click="$router.replace('/home')">
       <span>
         <i class="iconfont icon-shouye"></i>
       </span>
       <span>首页</span>
     </div>
-    <div class="E_footer_tab">
+    <div class="E_footer_tab" @click="$router.replace('/type/left')">
       <span>
         <i class="iconfont icon-202"></i>
       </span>
       <span>分类</span>
     </div>
-    <div class="E_footer_tab">
+    <div class="E_footer_tab" @click="$router.replace('/shop')">
       <span>
         <i class="iconfont icon-icon22fuzhi"></i>
       </span>
       <span>购物车</span>
     </div>
-    <div class="E_footer_tab">
+    <div class="E_footer_tab" @click="$router.replace('/user')">
       <span>
         <i class="iconfont icon-chongwu"></i>
       </span>

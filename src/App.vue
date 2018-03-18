@@ -3,7 +3,7 @@
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
-    <Footer></Footer>
+    <Footer v-show="$route.path === '/home'||$route.path === '/type/right'||$route.path === '/type/left'"></Footer>
   </div>
 </template>
 
@@ -16,6 +16,8 @@ components:{
 },
   mounted(){
   this.$store.dispatch('getHomepage')
+  this.$store.dispatch('getTypeLeft')
+  this.$store.dispatch('getTypeRight')
 }
 }
 </script>

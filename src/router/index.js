@@ -5,6 +5,7 @@ import Home from '../pages/home/home.vue'
 import Shop from '../pages/shop/shop.vue'
 import Type from '../pages/type/type.vue'
 import User from '../pages/user/user.vue'
+import AllBrand from  '../pages/allbrand/allbrand.vue'
 import TypeLeft from '../pages/type/type_left/type_left.vue'
 import TypeRight from '../pages/type/type_right/type_right.vue'
 
@@ -43,8 +44,12 @@ export default new VueRouter({
       component: User
     },
     {
+      path:'/all',
+      component: AllBrand
+    },
+    {
       path:'/',
-      redirect:'/home '
+      redirect:'/home'
     },
   ]
 })

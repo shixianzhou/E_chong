@@ -2,39 +2,58 @@
   <div class="rightcontent">
     <div class="rightcontent_wrap" ref="pinpai">
       <ul>
-        <li class="brand-list" v-for="item in 5">
+        <li class="brand-list" v-for="item in right">
             <div class="wrap">
-              <p class="title">—— 推荐品牌 ——</p>
+              <p class="title">—— {{item.title}} ——</p>
               <ul class="pinpai">
-                <li v-for="item in 13">
+                <li v-for="(item,index) in item.list">
                   <div>
-                    <img src="./images/a.jpg" alt="">
+                    <img :src="item.logo" alt="">
                   </div>
-                  <p class="name">冠能</p>
-                  <p class="address">美国</p>
+                  <p class="name">{{item.name}}</p>
+                  <p class="address">{{item.address}}</p>
                 </li>
               </ul>
             </div>
         </li>
       </ul>
     </div>
+    <div class="all" @click="$router.push('/all')">全部</div>
   </div>
 </template>
 <script>
   import BScroll from 'better-scroll'
+  import {mapState} from 'vuex'
   export default {
     mounted(){
       new BScroll(this.$refs.pinpai, {
         click:true
       })
+    },
+    computed:{
+      ...mapState(['right'])
     }
   }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
+.all
+  width 40px
+  height 40px
+  border-radius 50%
+  font-size 13px
+  text-align center
+  box-sizing border-box
+  padding-top  13px
+  position absolute
+  right  0
+  bottom 20%
+  color #fff
+  background-color: rgba(0,0,0,0.5)
 .rightcontent_wrap
   height 100%
 .rightcontent
+  position relative
   height 100%
   margin-top 45px
   div

@@ -7,3 +7,6 @@
 import ajax from './ajax'
 
 export const reqhome = () => ajax('/home')
+export const reqleft = () => ajax('/type/left')
+export const reqright = () => ajax('/type/right')
+export const reqbrand = () => ajax('/brand')

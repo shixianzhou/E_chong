@@ -14,7 +14,7 @@
             <i class="iconfont icon-sousuo"></i>
           </p>
         </div>
-        <div class="info">
+        <div class="info"  @click="$router.push('/user')">
           <a href="javascript:">
             <img src="./images/mydope.png" alt="">
           </a>
@@ -22,7 +22,9 @@
       </div>
       <div class="nav" ref="wrapper1">
         <ul class="nav_content">
-          <li v-for="(item,index) in homepage.menus" :key="index">{{item.menu_name}}</li>
+          <li v-for="(item,index) in homepage.menus" :key="index"
+          :class="{active:crindex===index}" @click="goto(index)"
+          >{{item.menu_name}}</li>
         </ul>
       </div>
     </div>
@@ -258,14 +260,20 @@
     data(){
         return{
           search:'',
-          selected:''
+          selected:'',
+          crindex:0
         }
       },
     mounted(){
-
+      console.log(this.$route);
   },
     computed:{
       ...mapState(['homepage']),
+    },
+    methods:{
+      goto(index){
+        this.crindex = index
+      }
     },
     watch:{
       homepage(){
@@ -310,6 +318,7 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
+
   .swiper-container3
     position relative
     .swiper-pagination3
@@ -394,11 +403,11 @@
           padding  8px 5px
           li
             font-size 14px
-            color #666
-          .active
-            padding-bottom 12px
-            border-bottom #459d36 2px solid
-            color #459d36
+            color #999
+            &.active
+              color #459d36
+              padding-bottom 12px
+              border-bottom #459d36 2px solid
     .container
       padding-top 85px
       width 100%

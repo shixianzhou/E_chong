@@ -1,13 +1,19 @@
 <template>
   <div class="allkind">
     <TypeHead/>
+    <keep-alive>
     <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
 <script>
 import TypeHead from '../../components/TypeHead.vue'
   export default {
+    mounted(){
+      this.$store.dispatch('getTypeLeft')
+      this.$store.dispatch('getTypeRight')
+    },
     components:{
       TypeHead
     }
